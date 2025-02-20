@@ -560,7 +560,7 @@
                                     placeholder="Tulis pesan atau pertanyaan Anda di sini"></textarea>
                             </div>
                             <div class="text-center">
-                                <a href="https://wa.me/6285156433746?text=Halo%20AutoExpert,%20saya%20ingin%20konsultasi%20tentang%20mobil." class="btn cta-button w-100">Kirim Permintaan Konsultasi</a>
+                                <button type="submit" class="btn cta-button w-100">Kirim Permintaan Konsultasi</button>
                             </div>
                         </form>
                     </div>
@@ -631,6 +631,35 @@
     <!-- Bootstrap & JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // WhatsApp link
+        document.getElementById("contactForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        // Ambil nilai dari form
+        var name = document.getElementById("name").value;
+        var phone = document.getElementById("phone").value;
+        var carType = document.getElementById("carType").value;
+        var budget = document.getElementById("budget").value;
+        var message = document.getElementById("message").value || "Tidak ada pesan tambahan.";
+
+        // Format pesan WhatsApp
+        var whatsappMessage = `Halo, saya ingin konsultasi mengenai pembelian mobil.%0A%0A` +
+            `Nama: ${name}%0A` +
+            `Nomor WhatsApp: ${phone}%0A` +
+            `Mobil yang diminati: ${carType}%0A` +
+            `Estimasi Budget: ${budget}%0A` +
+            `Pesan: ${message}%0A%0ATerima kasih.`;
+
+        // Nomor WhatsApp tujuan
+        var whatsappNumber = "6285156433746"; // Ganti dengan nomor tujuan
+
+        // Buat URL WhatsApp
+        var whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+        // Arahkan ke WhatsApp
+        window.open(whatsappURL, "_blank");
+    });
+
         // Form submission
         document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
