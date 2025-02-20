@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoExpert - Konsultan Mobil Terpercaya</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            /* Changed to a calmer blue */
+            --secondary-color: #f0f4f8;
+            /* Changed to a lighter gray */
+            --accent-color: #ff8c00;
+            /* Changed to a softer orange */
+            --text-color: #444;
+            /* Slightly lighter text color */
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('https://www.toyota.astra.co.id/sites/default/files/2025-02/Home%20Banner%20Desktop%201293x628_7.jpg') no-repeat center center;
+            background-size: cover;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+        }
+
+        .cta-button {
+            background-color: var(--accent-color);
+            color: white;
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 50px;
+            border: none;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+
+        .cta-button:hover {
+            background-color: #e67e22;
+            /* Softer hover color */
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .features-section {
+            padding: 5rem 0;
+            background-color: var(--secondary-color);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--primary-color);
+        }
+
+        .car-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        .car-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .car-img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .price-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        .testimonial-section {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .testimonial-card {
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        .star-rating {
+            color: #ffc107;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-section {
+            padding: 5rem 0;
+            background-color: var(--secondary-color);
+        }
+
+        .form-control {
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .social-icon {
+            font-size: 24px;
+            margin: 0 10px;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 2rem 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#" style="font-size: 2rem;">
+                <span style="color: var(--primary-color);">Auto</span><span
+                    style="color: var(--accent-color);">Expert</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#layanan">Layanan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#mobil">Mobil Terbaru</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#testimoni">Testimoni</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#kontak">Kontak</a>
+                    </li>
+                </ul>
+                <a href="#kontak" class="btn btn-primary ms-lg-3 rounded-pill px-4">Konsultasi Gratis</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title fade-in">Cari Mobil Impianmu? Kami Siap Membantu!</h1>
+                <p class="hero-subtitle fade-in">Dapatkan konsultasi dan penawaran terbaik untuk mobil impian Anda
+                    bersama konsultan terpercaya.</p>
+                <a href="#kontak" class="btn cta-button fade-in">Konsultasi Gratis <i
+                        class="ms-2 fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="layanan">
+        <div class="container">
+            <h2 class="section-title fade-in">Layanan Kami</h2>
+            <div class="row">
+                <div class="col-md-4 text-center mb-4 fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Pilihan Sesuai Kebutuhan</h3>
+                    <p>Kami membantu Anda menemukan mobil yang sesuai dengan kebutuhan dan budget. Dengan pengalaman
+                        bertahun-tahun, kami mengerti mobil yang tepat untuk Anda.</p>
+                </div>
+                <div class="col-md-4 text-center mb-4 fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments-dollar"></i>
+                    </div>
+                    <h3>Konsultasi Gratis</h3>
+                    <p>Dapatkan konsultasi gratis sebelum membeli. Kami akan menjelaskan kelebihan dan kekurangan setiap
+                        model untuk membantu keputusan Anda.</p>
+                </div>
+                <div class="col-md-4 text-center mb-4 fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Simulasi Kredit</h3>
+                    <p>Bingung dengan skema pembayaran? Kami bantu hitung simulasi kredit dengan berbagai tenor untuk
+                        memudahkan perencanaan keuangan Anda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Cars Section -->
+    <section class="py-5" id="mobil">
+        <div class="container">
+            <h2 class="section-title fade-in">Mobil Terbaru &amp; Promo</h2>
+            <div class="row">
+                <!-- Car 1 -->
+                <div class="col-lg-4 col-md-6 fade-in">
+                    <div class="car-card">
+                        <div class="position-relative">
+                            <img src="https://imgcdn.oto.com/large/gallery/exterior/177/2882/byd-seal-front-angle-low-view-332440.jpg"
+                                class="card-img-top car-img" alt="BYD Seal">
+                            <div class="price-badge">Mulai Rp 639 - 735 Juta</div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">BYD Seal</h4>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span><i class="fas fa-bolt text-muted me-2"></i>82.56 kWh (510–650 km)</span>
+                                <span><i class="fas fa-cog text-muted me-2"></i>Otomatis</span>
+                            </div>
+                            <p class="card-text">BYD Seal 2025 adalah 5 Seater Sedan yang tersedia dalam daftar harga Rp
+                                639 - 735 Juta di Indonesia. Pesaing terdekat BYD Seal adalah 6
+                                Sedan, 3 Sedan, Corolla Altis dan Civic RS.</p>
+                            <div class="bg-light p-2 rounded mb-3">
+                                <p class="mb-0 text-danger fw-bold"><i class="fas fa-tag me-2"></i>Promo: DP 15% + Free
+                                    Service 3 Tahun</p>
+                            </div>
+                            <a href="https://www.oto.com/mobil-baru/byd/seal"
+                                class="btn btn-outline-primary w-100">Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Car 2 -->
+                <div class="col-lg-4 col-md-6 fade-in">
+                    <div class="car-card">
+                        <div class="position-relative">
+                            <img src="https://imgcdn.oto.com/large/gallery/exterior/153/2727/chery-omoda-5-front-angle-low-view-900536.jpg"
+                                class="card-img-top car-img" alt="Sedan">
+                            <div class="price-badge">Mulai Rp 346,8 - 423 Juta</div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">CHERY OMODA 5</h4>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span><i class="fas fa-gas-pump text-muted me-2"></i>14,5 km/l</span>
+                                <span><i class="fas fa-cog text-muted me-2"></i>Otomatis</span>
+                            </div>
+                            <p class="card-text">CHERY OMODA 5 tersedia dalam pilihan mesin Bensin di Indonesia
+                                Crossover baru dari CHERY hadir dalam 2 varian. Bicara soal spesifikasi mesin CHERY
+                                OMODA 5, ini ditenagai dua pilihan mesin Bensin berkapasitas 1498 cc.</p>
+                            <div class="bg-light p-2 rounded mb-3">
+                                <p class="mb-0 text-danger fw-bold"><i class="fas fa-tag me-2"></i>Promo: Bunga 0%
+                                    Selama 6 Bulan</p>
+                            </div>
+                            <a href="https://www.oto.com/mobil-baru/chery/omoda-5"
+                                class="btn btn-outline-primary w-100">Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Car 3 -->
+                <div class="col-lg-4 col-md-6 fade-in">
+                    <div class="car-card">
+                        <div class="position-relative">
+                            <img src="https://imgcdn.oto.com/large/gallery/exterior/29/2986/nissan-serena-e-power-front-angle-low-view-967475.jpg"
+                                class="card-img-top car-img" alt="MPV">
+                            <div class="price-badge">Mulai Rp 645 - 649,5 Juta</div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Nissan Serena e-Power</h4>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span><i class="fas fa-gas-pump text-muted me-2"></i>19 km/liter (HEV)</span>
+                                <span><i class="fas fa-cog text-muted me-2"></i>Otomatis</span>
+                            </div>
+                            <p class="card-text">Nissan Serena e-Power 2025 adalah 7 Seater MPV. It is available in 2
+                                variants, 1 engine,
+                                and 1 transmissions option. Pesaing terdekat Nissan Serena e-Power adalah Voxy, Serena
+                                dan Kijang Innova Zenix Hybrid EV.</p>
+                            <div class="bg-light p-2 rounded mb-3">
+                                <p class="mb-0 text-danger fw-bold"><i class="fas fa-tag me-2"></i>Promo: Cashback Rp 15
+                                    Juta</p>
+                            </div>
+                            <a href="https://www.oto.com/mobil-baru/nissan/serena-e-power"
+                                class="btn btn-outline-primary w-100">Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4 fade-in">
+                <a href="#kontak" class="btn cta-button">Lihat Semua Mobil <i class="fas fa-arrow-right ms-2"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section" id="testimoni">
+        <div class="container">
+            <h2 class="section-title fade-in">Apa Kata Pelanggan Kami</h2>
+            <div class="row">
+                <!-- Testimonial 1 -->
+                <div class="col-lg-4 col-md-6 fade-in">
+                    <div class="testimonial-card h-100">
+                        <div class="d-flex align-items-center mb-4">
+                            <img src="https://source.unsplash.com/random/150x150/?man" class="testimonial-img"
+                                alt="Customer">
+                            <div>
+                                <h5 class="mb-0">Budi Santoso</h5>
+                                <small class="text-muted">Pengusaha</small>
+                            </div>
+                        </div>
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Sangat terbantu dengan konsultasi dari AutoExpert. Saya mendapatkan mobil SUV impian dengan
+                            harga yang sangat baik dan proses kredit yang mudah."</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="col-lg-4 col-md-6 fade-in">
+                    <div class="testimonial-card h-100">
+                        <div class="d-flex align-items-center mb-4">
+                            <img src="https://source.unsplash.com/random/150x150/?woman" class="testimonial-img"
+                                alt="Customer">
+                            <div>
+                                <h5 class="mb-0">Dewi Anggraini</h5>
+                                <small class="text-muted">Dokter</small>
+                            </div>
+                        </div>
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p>"Konsultan yang sangat profesional! Membantu saya memilih mobil yang tepat untuk kebutuhan
+                            saya sebagai dokter yang memerlukan mobil handal dan nyaman."</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="col-lg-4 col-md-6 fade-in">
+                    <div class="testimonial-card h-100">
+                        <div class="d-flex align-items-center mb-4">
+                            <img src="https://source.unsplash.com/random/150x150/?family" class="testimonial-img"
+                                alt="Customer">
+                            <div>
+                                <h5 class="mb-0">Keluarga Pratama</h5>
+                                <small class="text-muted">Pelanggan MPV</small>
+                            </div>
+                        </div>
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Terima kasih atas bantuannya dalam memilih MPV untuk keluarga kami. Pelayanan dari awal
+                            hingga serah terima sangat memuaskan. Bahkan setelah pembelian masih selalu siap membantu!"
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="kontak">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 fade-in">
+                    <h2 class="mb-4">Hubungi Kami</h2>
+                    <p class="mb-4">Tertarik dengan penawaran kami? Jangan ragu untuk menghubungi kami. Konsultasi
+                        gratis tanpa biaya apa pun!</p>
+
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="bg-primary rounded-circle p-3 me-3 text-white">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-0">Telepon/WhatsApp</h5>
+                            <p class="mb-0">(+62) 851-5643-3746</p>
+                            <a href="https://wa.me/6285156433746" class="text-primary">Chat via WhatsApp</a>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="bg-primary rounded-circle p-3 me-3 text-white">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-0">Email</h5>
+                            <p class="mb-0">iqbalgarut0@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="bg-primary rounded-circle p-3 me-3 text-white">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-0">Alamat</h5>
+                            <p class="mb-0">Jl. Pamekaran No.111, Karangpawitan, Kab. Garut</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-5">
+                        <h5>Ikuti Kami:</h5>
+                        <div class="mt-3">
+                            <a href="http://instagram.com/iqbal.copypeist_" class="social-icon"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="http://facebook.com/iqbal.copypeist" class="social-icon"><i
+                                    class="fab fa-facebook"></i></a>
+                            <a href="http://tiktok.com/@copypeist_" class="social-icon"><i
+                                    class="fab fa-tiktok"></i></a>
+                            <a href="https://www.youtube.com/@iqbaalmr4761" class="social-icon"><i
+                                    class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 fade-in">
+                    <div class="bg-white p-4 rounded shadow-sm">
+                        <h3 class="mb-4 text-center">Konsultasi Gratis</h3>
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nama Lengkap</label>
+                                <input type="text" class="form-control" id="name" placeholder="Masukkan nama lengkap"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Nomor WhatsApp</label>
+                                <input type="tel" class="form-control" id="phone" placeholder="Contoh: 08123456789"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="carType" class="form-label">Mobil yang Diminati</label>
+                                <select class="form-select" id="carType" required>
+                                    <option value="" selected disabled>Pilih jenis mobil</option>
+                                    <option value="SUV">SUV</option>
+                                    <option value="Sedan">Sedan</option>
+                                    <option value="MPV">MPV</option>
+                                    <option value="Hatchback">Hatchback</option>
+                                    <option value="Electric">Mobil Listrik</option>
+                                    <option value="Other">Lainnya</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="budget" class="form-label">Estimasi Budget</label>
+                                <select class="form-select" id="budget" required>
+                                    <option value="" selected disabled>Pilih rentang budget</option>
+                                    <option value="< 200 Juta">
+                                        < Rp 200 Juta</option>
+                                    <option value="200-300 Juta">Rp 200 - 300 Juta</option>
+                                    <option value="300-500 Juta">Rp 300 - 500 Juta</option>
+                                    <option value="> 500 Juta">> Rp 500 Juta</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Pesan/Pertanyaan (Opsional)</label>
+                                <textarea class="form-control" id="message" rows="3"
+                                    placeholder="Tulis pesan atau pertanyaan Anda di sini"></textarea>
+                            </div>
+                            <div class="text-center">
+                                <a href="https://wa.me/6285156433746?text=Halo%20AutoExpert,%20saya%20ingin%20konsultasi%20tentang%20mobil." class="btn cta-button w-100">Kirim Permintaan Konsultasi</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4 class="mb-4"><span style="color: var(--primary-color);">Auto</span><span
+                            style="color: var(--accent-color);">Expert</span></h4>
+                    <p>Konsultan mobil terpercaya dengan pengalaman lebih dari 10 tahun. Kami membantu Anda mendapatkan
+                        mobil impian dengan penawaran terbaik.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-4">Tautan</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Beranda</a></li>
+                        <li class="mb-2"><a href="#layanan" class="text-white text-decoration-none">Layanan</a></li>
+                        <li class="mb-2"><a href="#mobil" class="text-white text-decoration-none">Mobil</a></li>
+                        <li class="mb-2"><a href="#testimoni" class="text-white text-decoration-none">Testimoni</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-4">Brand Mobil</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Toyota</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Honda</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Mitsubishi</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Hyundai</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">BYD</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Cherry</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4">Jam Operasional</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">Senin - Jumat: 08.00 - 18.00</li>
+                        <li class="mb-2">Sabtu: 09.00 - 16.00</li>
+                        <li class="mb-2">Minggu: 10.00 - 14.00</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy;
+                        <script>document.write(new Date().getFullYear());</script> AutoExpert.
+                    </p>
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+                    <a href="#" class="text-white text-decoration-none mx-2">Syarat & Ketentuan</a>
+                    <a href="#" class="text-white text-decoration-none mx-2">Kebijakan Privasi</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6285156433746" class="floating-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap & JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+
+            // Show success message
+            alert(`Terima kasih ${name}! Konsultan kami akan menghubungi Anda segera di ${phone}.`);
+
+            // Reset form
+            this.reset();
+        });
+
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function () {
+            const fadeElements = document.querySelectorAll('.fade-in');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+
+            // Make hero elements visible initially
+            setTimeout(() => {
+                document.querySelectorAll('.hero-section .fade-in').forEach(el => {
+                    el.classList.add('visible');
+                });
+            }, 300);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function () {
+            const heroSection = document.querySelector('.hero-section');
+            const scrollPosition = window.pageYOffset;
+
+            // Move the background slightly on scroll for parallax effect
+            if (heroSection) {
+                heroSection.style.backgroundPosition = `center calc(50% + ${scrollPosition * 0.4}px)`;
+            }
+        });
+
+        // Countdown timer for limited time offer
+        function startCountdown() {
+            const countdownElement = document.getElementById('countdown');
+            if (!countdownElement) return;
+
+            // Set countdown to 3 days from now
+            const endDate = new Date();
+            endDate.setDate(endDate.getDate() + 3);
+
+            const interval = setInterval(function () {
+                const now = new Date().getTime();
+                const distance = endDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                countdownElement.innerHTML = `${days}h ${hours}j ${minutes}m ${seconds}d`;
+
+                if (distance < 0) {
+                    clearInterval(interval);
+                    countdownElement.innerHTML = "Promo Berakhir";
+                }
+            }, 1000);
+        }
+
+        // Call countdown function if countdown element exists
+        document.addEventListener('DOMContentLoaded', function () {
+            startCountdown();
+        });
+
+        // Car filter functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const filterButtons = document.querySelectorAll('.car-filter-btn');
+            if (filterButtons.length === 0) return;
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const filterValue = this.getAttribute('data-filter');
+
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    // Show/hide car cards based on filter
+                    document.querySelectorAll('.car-card').forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.closest('.col-lg-4').style.display = 'block';
+                        } else {
+                            card.closest('.col-lg-4').style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+
+        // Testimonial carousel/slider
+        class TestimonialSlider {
+            constructor(containerSelector) {
+                this.container = document.querySelector(containerSelector);
+                if (!this.container) return;
+
+                this.slides = this.container.querySelectorAll('.testimonial-slide');
+                this.currentIndex = 0;
+                this.totalSlides = this.slides.length;
+
+                // Create navigation dots
+                this.createDots();
+
+                // Set interval for auto-sliding
+                this.interval = setInterval(() => this.nextSlide(), 5000);
+
+                // Add event listeners for previous and next buttons
+                const prevButton = this.container.querySelector('.prev-btn');
+                const nextButton = this.container.querySelector('.next-btn');
+
+                if (prevButton) {
+                    prevButton.addEventListener('click', () => {
+                        clearInterval(this.interval);
+                        this.prevSlide();
+                        this.interval = setInterval(() => this.nextSlide(), 5000);
+                    });
+                }
+
+                if (nextButton) {
+                    nextButton.addEventListener('click', () => {
+                        clearInterval(this.interval);
+                        this.nextSlide();
+                        this.interval = setInterval(() => this.nextSlide(), 5000);
+                    });
+                }
+
+                // Initial setup
+                this.updateSlides();
+            }
+
+            createDots() {
+                const dotsContainer = document.createElement('div');
+                dotsContainer.className = 'slider-dots text-center mt-4';
+
+                for (let i = 0; i < this.totalSlides; i++) {
+                    const dot = document.createElement('span');
+                    dot.className = 'slider-dot';
+                    dot.dataset.index = i;
+
+                    dot.addEventListener('click', (e) => {
+                        const index = parseInt(e.target.dataset.index);
+                        this.currentIndex = index;
+                        this.updateSlides();
+
+                        clearInterval(this.interval);
+                        this.interval = setInterval(() => this.nextSlide(), 5000);
+                    });
+
+                    dotsContainer.appendChild(dot);
+                }
+
+                this.container.appendChild(dotsContainer);
+                this.dots = dotsContainer.querySelectorAll('.slider-dot');
+            }
+
+            updateSlides() {
+                // Hide all slides
+                this.slides.forEach(slide => {
+                    slide.style.opacity = '0';
+                    slide.style.transform = 'translateX(20px)';
+                    slide.style.zIndex = '-1';
+                    slide.style.position = 'absolute';
+                });
+
+                // Show active slide
+                this.slides[this.currentIndex].style.opacity = '1';
+                this.slides[this.currentIndex].style.transform = 'translateX(0)';
+                this.slides[this.currentIndex].style.zIndex = '1';
+                this.slides[this.currentIndex].style.position = 'relative';
+
+                // Update dots
+                this.dots.forEach((dot, index) => {
+                    if (index === this.currentIndex) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+
+            nextSlide() {
+                this.currentIndex = (this.currentIndex + 1) % this.totalSlides;
+                this.updateSlides();
+            }
+
+            prevSlide() {
+                this.currentIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
+                this.updateSlides();
+            }
+        }
+
+        // Initialize testimonial slider if it exists
+        document.addEventListener('DOMContentLoaded', function () {
+            const testimonialSlider = new TestimonialSlider('.testimonial-slider');
+        });
+
+        // Car comparison feature
+        class CarComparison {
+            constructor() {
+                this.compareList = [];
+                this.maxCompare = 3;
+
+                // Find compare buttons
+                const compareButtons = document.querySelectorAll('.compare-btn');
+                if (compareButtons.length === 0) return;
+
+                // Add event listeners
+                compareButtons.forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const carId = button.dataset.carId;
+                        const carName = button.dataset.carName;
+
+                        this.toggleCompare(carId, carName, button);
+                    });
+                });
+
+                // Compare panel
+                const comparePanel = document.getElementById('comparePanel');
+                if (comparePanel) {
+                    // Clear all button
+                    const clearAllBtn = comparePanel.querySelector('.clear-all');
+                    if (clearAllBtn) {
+                        clearAllBtn.addEventListener('click', () => this.clearAll());
+                    }
+
+                    // Compare button
+                    const compareBtn = comparePanel.querySelector('.compare-now');
+                    if (compareBtn) {
+                        compareBtn.addEventListener('click', () => this.showComparison());
+                    }
+                }
+            }
+
+            toggleCompare(carId, carName, button) {
+                const index = this.compareList.findIndex(car => car.id === carId);
+
+                if (index === -1) {
+                    // Add to compare list if not full
+                    if (this.compareList.length < this.maxCompare) {
+                        this.compareList.push({ id: carId, name: carName });
+                        button.classList.add('active');
+                        button.textContent = 'Hapus dari Perbandingan';
+                    } else {
+                        alert(`Maksimal ${this.maxCompare} mobil untuk dibandingkan`);
+                        return;
+                    }
+                } else {
+                    // Remove from compare list
+                    this.compareList.splice(index, 1);
+                    button.classList.remove('active');
+                    button.textContent = 'Bandingkan';
+                }
+
+                this.updateComparePanel();
+            }
+
+            updateComparePanel() {
+                const comparePanel = document.getElementById('comparePanel');
+                if (!comparePanel) return;
+
+                const itemsContainer = comparePanel.querySelector('.compare-items');
+                if (!itemsContainer) return;
+
+                // Clear container
+                itemsContainer.innerHTML = '';
+
+                // Add comparison items
+                this.compareList.forEach(car => {
+                    const item = document.createElement('div');
+                    item.className = 'compare-item';
+                    item.innerHTML = `
+                        <span>${car.name}</span>
+                        <button class="remove-item" data-car-id="${car.id}">×</button>
+                    `;
+
+                    // Add remove event
+                    const removeBtn = item.querySelector('.remove-item');
+                    removeBtn.addEventListener('click', () => {
+                        // Find and update the original compare button
+                        const originalButton = document.querySelector(`.compare-btn[data-car-id="${car.id}"]`);
+                        if (originalButton) {
+                            originalButton.classList.remove('active');
+                            originalButton.textContent = 'Bandingkan';
+                        }
+
+                        // Remove from list
+                        const index = this.compareList.findIndex(c => c.id === car.id);
+                        if (index !== -1) {
+                            this.compareList.splice(index, 1);
+                            this.updateComparePanel();
+                        }
+                    });
+
+                    itemsContainer.appendChild(item);
+                });
+
+                // Show/hide panel and update count
+                const countSpan = comparePanel.querySelector('.compare-count');
+                if (countSpan) {
+                    countSpan.textContent = this.compareList.length;
+                }
+
+                const compareBtn = comparePanel.querySelector('.compare-now');
+                if (compareBtn) {
+                    compareBtn.disabled = this.compareList.length < 2;
+                }
+
+                if (this.compareList.length > 0) {
+                    comparePanel.classList.add('active');
+                } else {
+                    comparePanel.classList.remove('active');
+                }
+            }
+
+            clearAll() {
+                // Reset all compare buttons
+                document.querySelectorAll('.compare-btn.active').forEach(button => {
+                    button.classList.remove('active');
+                    button.textContent = 'Bandingkan';
+                });
+
+                // Clear list
+                this.compareList = [];
+                this.updateComparePanel();
+            }
+
+            showComparison() {
+                if (this.compareList.length < 2) {
+                    alert('Pilih minimal 2 mobil untuk dibandingkan');
+                    return;
+                }
+
+                // Here you would normally open the comparison modal or page
+                // For demonstration, we'll just show an alert
+                alert(`Membandingkan mobil: ${this.compareList.map(car => car.name).join(' vs ')}`);
+
+                // In a real implementation, you could:
+                // - Show a modal with comparison table
+                // - Redirect to a comparison page with query parameters
+                // - Load comparison data via AJAX
+            }
+        }
+
+        // Initialize car comparison if needed
+        document.addEventListener('DOMContentLoaded', function () {
+            const carComparison = new CarComparison();
+        });
+    </script>
+</body>
+
+</html>
